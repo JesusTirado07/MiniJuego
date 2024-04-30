@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+         <title>PiedraPapelTijera</title>
+         <script>
+            function aleatorio(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min)
+            }
+                while (true) {
+                //1 es piedra, 2 es papel, 3 es tijera
+                let jugador = 0
+                let min = 1
+                let max = 3
+                let pc = aleatorio(1, 3)
+                jugador = prompt("Elige: 1 para piedra, 2 para papel o 3 para tijera")
+                // alert ("Elegiste: " + jugador)
+
+                //jugador
+                if (jugador == 1) {
+                    alert("Elegiste 🪨")
+                }
+                else if (jugador == 2) {
+                    alert("Elegiste 🧻")
+                }
+                else if (jugador == 3) {
+                    alert("Elegiste ✂️")
+                }
+                else {
+                    alert("ELEGISTE PERDERRRRR 🙇‍♂️")
+                    break;
+                }
+                
+                //PC
+                if (pc == 1) {
+                    alert("PC Elige 🪨")
+                }
+                else if (pc == 2) {
+                    alert("PC Elige 🧻")
+                }
+                else if (pc == 3) {
+                    alert("PC Elige ✂️")
+                }
+
+                //Combate
+                if (pc == jugador) {
+                    alert("Empate 😒")
+                }
+                else if (jugador == 1 && pc == 3) {
+                    alert("Ganaste 😎")
+                }
+                else if(jugador == 2 && pc == 1) {
+                    alert("Ganaste 😎")
+                }
+                else if(jugador == 3 && pc == 2) {
+                    alert("Ganaste 😎")
+                }
+                else{
+                    alert("Perdiste 😭")
+                }
+            }
+         </script>
+    </head>
+    <body>
+        <h1>Piedra, Papel o Tijera</h1>
+    </body>
+</html>
