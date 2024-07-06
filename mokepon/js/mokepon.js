@@ -15,6 +15,8 @@ function iniciarJuego() {
     let botonTierra = document.getElementById('boton-tierra')
     botonTierra.addEventListener('click', ataqueTierra)
 
+    let botonReiniciar = document.getElementById('boton-reiniciar')
+    botonReiniciar.addEventListener('click', reiniciarJuego)
 }
 
 function seleccionarMascotaJugador() {
@@ -36,14 +38,6 @@ function seleccionarMascotaJugador() {
 
         spanMascotaJugador.innerHTML = "Ratigueya"
 
-    } else if (inputTenazas.checked){
-
-        spanMascotaJugador.innerHTML = "Tenazas"
-
-    } else if (inputTucapalma.checked){
-
-        spanMascotaJugador.innerHTML = "Tucapalma"
-        
     } else {
 
         alert("No has seleccionado ninguna mascota")
@@ -130,6 +124,17 @@ function combate(){
         vidasJugador--
         spanVidasJugador.innerHTML = vidasJugador
     }
+    
+    revisarVidas()
+}
+
+function revisarVidas(){
+    if (vidasEnemigo == 0) {
+        crearMensajeFinal("FELICITACIONS GANASTE 🏆")
+    }
+    else if (vidasJugador == 0) {
+        crearMensajeFinal("LO SIENTO PERDISTE 😪")
+    }
 }
 
 function crearMensaje(resultado){
@@ -139,6 +144,19 @@ function crearMensaje(resultado){
     parrafo.innerHTML = 'Tu mascota atacó con ' + ataqueJugador + ', la mascota del enemigo atacó con ' + ataqueEnemigo + ' - ' + resultado
 
     sectionMensajes.appendChild(parrafo)
+}
+
+function crearMensajeFinal(resultadoFinal){
+    let sectionMensajes = document.getElementById('mensajes')
+
+    let parrafo = document.createElement('p')
+    parrafo.innerHTML = resultadoFinal
+
+    sectionMensajes.appendChild(parrafo)
+}
+
+function reiniciarJuego(){
+    location.reload()
 }
 
 function aleatorio(min, max){
